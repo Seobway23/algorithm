@@ -10,16 +10,31 @@
 백설공주를 도와 일곱 난쟁이를 찾는 프로그램을 작성하시오.
 '''
 
-T=7
-for test_case in range(7):
+T=9
+lst=[]
+cnt=0
+for test_case in range(T):
     N=int(input())
-    lst=[]
     lst.append(N)
 
 
-lst.sort()
+for i in range(T-1):
+    for j in range(i+1,T):
+        if cnt==1:
+            break
+        lst_s = copy.deepcopy(lst)
+        lst_s.remove(lst[i])
+        lst_s.remove(lst[j])
+        if sum(lst_s) == 100:
+            cnt=1
+    if cnt==1:
+        break
 
-for i in lst:
+
+lst_s.sort()
+for i in lst_s:
     print(i)
 
+print(lst_s)
 
+# 런타임 에러 났음 ㅜㅜ
